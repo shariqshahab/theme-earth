@@ -5,102 +5,102 @@ metadata:
 spec:
   forms:
     - group: layout
-      label: 布局
+      label: Loyout
       formSchema:
         - $formkit: select
           name: post_list_layout
-          label: 文章列表布局
+          label: Articles Listing Layout
           value: grid_3
           options:
-            - label: 网格（一行三列）
+            - label: Grid（Three columns in a row）
               value: grid_3
-            - label: 网格（一行两列）
+            - label: Grid（One row, two columns）
               value: grid_2
-            - label: 单条
+            - label: Single Bar
               value: single
-          help: "选择单条时，文章卡片的图片将位于左侧"
+          help: "When single bar is selected，The image of the postcard will be on the left"
         - $formkit: select
           name: header_widget
-          label: 首页顶部模块
+          label: Homepage Top Blocks
           value: site_title
           options:
-            - label: 无
+            - label: None
               value: none
-            - label: 最新一篇文章
+            - label: Latest Posts
               value: latest_post
-            - label: 文章网格（最新五篇文章）
+            - label: Post Grid（Five Latest Articles）
               value: latest_post_grid
-            - label: 站点标题
+            - label: The Site Title
               value: site_title
         - $formkit: select
           name: header_background_type
           id: header_background_type
           key: header_background_type
-          label: 首页顶部背景
+          label: Home Top Background
           value: image
           options:
-            - label: 手动设置
+            - label: Set manually
               value: manual
-            - label: 图片
+            - label: Infographic
               value: image
         - $formkit: text
           if: "$get(header_background_type).value === manual"
           name: header_background
           id: header_background
           key: header_background
-          label: 首页顶部背景
+          label: Home Top Background
         - $formkit: attachment
           if: "$get(header_background_type).value === image"
           name: header_background_image
           id: header_background_image
           key: header_background_image
-          label: 首页顶部背景图片
+          label: Homepage Top Background Image
           value: /themes/theme-earth/assets/images/default-background-2023-10-12.jpeg
         - $formkit: radio
           name: content_header
-          label: 文章页顶部
+          label: Top of Article Page
           value: true
           options:
-            - label: 显示
+            - label: Show
               value: true
-            - label: 隐藏
+            - label: Hide
               value: false
 
     - group: style
-      label: 样式
+      label: Style
       formSchema:
         - $formkit: radio
           name: color_scheme
-          label: 默认配色
+          label: Base Color Scheme
           value: system
           options:
-            - label: 跟随系统
+            - label: Follow system
               value: system
-            - label: 深色
+            - label: Dark
               value: dark
-            - label: 浅色
+            - label: Light
               value: light
 
         - $formkit: checkbox
           name: enable_change_color_scheme
-          label: 允许访客切换配色
+          label: Allow visitors to toggle color scheme
           value: true
 
     - group: post
-      label: 文章
+      label: Posts
       formSchema:
         - $formkit: select
           name: content_style
-          label: 内容样式
+          label: Content & Style
           value: "tailwind"
           options:
-            - label: GitHub 风格
+            - label: GitHub STYLE #
               value: github
             - label: Tailwind CSS Typography
               value: tailwind
         - $formkit: repeater
           name: share_items
-          label: 分享按钮
+          label: Share buttons
           value:
             - id: wechat
             - id: x
@@ -114,9 +114,9 @@ spec:
           children:
             - $formkit: select
               name: id
-              label: 分享平台
+              label: Sharing platform
               options:
-                - label: 微信
+                - label: WeChat
                   value: wechat
                 - label: X
                   value: x
@@ -126,20 +126,20 @@ spec:
                   value: facebook
                 - label: QQ
                   value: qq
-                - label: QQ 空间
+                - label: QQ Space
                   value: qzone
-                - label: 微博
+                - label: Weibo
                   value: weibo
-                - label: 豆瓣
+                - label: Douban
                   value: douban
-                - label: 系统分享
+                - label: System Sharing
                   value: native
     - group: sidebar
-      label: 侧边栏
+      label: Sidebar
       formSchema:
         - $formkit: repeater
           name: widgets
-          label: 小部件
+          label: Widgets
           value:
             - value: popular-posts
             - value: categories
@@ -147,15 +147,15 @@ spec:
           children:
             - $formkit: select
               name: value
-              label: 部件
+              label: Parts
               options:
-                - label: 站点资料
+                - label: Site Profile
                   value: profile
-                - label: 热门文章
+                - label: Trending Articles
                   value: popular-posts
-                - label: 文章分类
+                - label: Article Categories
                   value: categories
-                - label: 文章标签
+                - label: In Post Tag
                   value: tags
 
         - $formkit: group
@@ -165,32 +165,32 @@ spec:
           children:
             - $formkit: attachment
               name: logo
-              label: 站点资料 Logo
+              label: Site Profile Logo
 
         - $formkit: repeater
           name: social_media
-          label: 社交媒体
+          label: Social media
           value: []
           children:
             - $formkit: select
               name: icon
-              label: 图标
+              label: Icon
               options:
-                - label: 电子邮箱
+                - label: Email
                   value: i-tabler-mail
-                - label: 微信
+                - label: WeChat
                   value: i-simple-icons-wechat
-                - label: 腾讯 QQ
+                - label: Tencent QQ
                   value: i-simple-icons-tencentqq
-                - label: 新浪微博
+                - label: Sina Weibo
                   value: i-simple-icons-sinaweibo
-                - label: 知乎
+                - label: Zhihu
                   value: i-simple-icons-zhihu
-                - label: 豆瓣
+                - label: Douban
                   value: i-simple-icons-douban
-                - label: 哔哩哔哩
+                - label: bilibili
                   value: i-simple-icons-bilibili
-                - label: 抖音 / TikTok
+                - label: Tik Tok
                   value: i-simple-icons-tiktok
                 - label: Telegram
                   value: i-simple-icons-telegram
@@ -218,46 +218,46 @@ spec:
                   value: i-simple-icons-rss
             - $formkit: text
               name: name
-              label: 名称
+              label: <g id="Bold">Medicine Name </g>
             - $formkit: text
               name: url
-              label: 链接
+              label: Link
               validation: "required"
             - $formkit: radio
               name: url_type
-              label: 链接类型
+              label: link type
               value: normal
-              help: "如果选择了图片类型，那么在访客点击之后会使用弹框的形式加载"
+              help: "If image type is selected，Then, after the visitor clicks, it will be loaded in the form of a pop-up box"
               options:
-                - label: 跳转链接
+                - label: Jump link
                   value: normal
-                - label: 图片
+                - label: Infographic
                   value: image
 
     - group: footer
-      label: 页脚
+      label: Footer
       formSchema:
         - $formkit: select
           name: style
           id: style
           key: style
-          label: 页脚风格
+          label: General footer
           value: style_1
           options:
-            - label: 风格一
+            - label: Style One
               value: style_1
-            - label: 风格二
+            - label: Style Two
               value: style_2
 
         - $formkit: attachment
           name: logo
           label: Logo
-          help: 如果不设置，将使用站点设置的 Logo
+          help: If not set，will use the set of Logo
 
         - $formkit: text
           name: title
-          label: 标题
-          help: 如果不设置，将使用站点设置的标题
+          label: Title
+          help: If not set，The title set by the site will be used
 
         - $formkit: textarea
           rows: 3
@@ -265,52 +265,52 @@ spec:
           id: slogan
           key: slogan
           if: "$get(style).value === style_2"
-          label: 标语
+          label: Tagline menu
 
         - $formkit: menuRadio
           if: "$get(style).value === style_1"
           name: menu
           id: menu
           key: menu
-          label: 右侧菜单
+          label: Right-hand Menu
 
         - $formkit: repeater
           if: "$get(style).value === style_2"
           name: menus
           id: menus
           key: menus
-          label: 菜单组
+          label: Menu groups
           value: []
           children:
             - $formkit: menuRadio
               name: name
-              label: 菜单
+              label: Menu
               validation: "required"
 
         - $formkit: repeater
           name: social_media
-          label: 社交媒体
+          label: Social media
           value: []
           children:
             - $formkit: select
               name: icon
-              label: 图标
+              label: Icon
               options:
-                - label: 电子邮箱
+                - label: Email
                   value: i-tabler-mail
-                - label: 微信
+                - label: WeChat
                   value: i-simple-icons-wechat
-                - label: 腾讯 QQ
+                - label: Tencent QQ
                   value: i-simple-icons-tencentqq
-                - label: 新浪微博
+                - label: Sina Weibo
                   value: i-simple-icons-sinaweibo
-                - label: 知乎
+                - label: Zhihu
                   value: i-simple-icons-zhihu
-                - label: 豆瓣
+                - label: Douban
                   value: i-simple-icons-douban
-                - label: 哔哩哔哩
+                - label: bilibili
                   value: i-simple-icons-bilibili
-                - label: 抖音 / TikTok
+                - label: Tik Tok
                   value: i-simple-icons-tiktok
                 - label: Telegram
                   value: i-simple-icons-telegram
@@ -338,37 +338,37 @@ spec:
                   value: i-simple-icons-rss
             - $formkit: text
               name: name
-              label: 名称
+              label: <g id="Bold">Medicine Name </g>
             - $formkit: text
               name: url
-              label: 链接
+              label: Link
               validation: "required"
             - $formkit: radio
               name: url_type
-              label: 链接类型
+              label: link type
               value: normal
-              help: "如果选择了图片类型，那么在访客点击之后会使用弹框的形式加载"
+              help: "If image type is selected，Then, after the visitor clicks, it will be loaded in the form of a pop-up box"
               options:
-                - label: 跳转链接
+                - label: Jump link
                   value: normal
-                - label: 图片
+                - label: Infographic
                   value: image
 
     - group: beian
-      label: 备案设置
+      label: Filing Settings
       formSchema:
         - $formkit: text
           name: icp_text
-          label: ICP备案号
+          label: ICPFiling Number
         - $formkit: text
           name: icp_link
-          label: ICP备案跳转链接
+          label: ICPFiling redirect link
           value: https://beian.miit.gov.cn/
 
         - $formkit: text
           name: gongan_text
-          label: 公安联网备案号
+          label: Public Security Network Record Number
         - $formkit: text
           name: gongan_link
-          label: 公安联网备案跳转链接
+          label: Public Security Network Filing Jump Link
           value: https://beian.mps.gov.cn/#/query/webSearch
